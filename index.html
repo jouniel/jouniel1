@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>자낳대 경매</title>
+  <script type="module" src="/src/main.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    .auction-box { border: 1px solid #ccc; padding: 1rem; margin-top: 1rem; }
+    .player { margin-bottom: 0.5rem; }
+    .controls input { width: 80px; }
+  </style>
+</head>
+<body>
+  <h1>자낳대 롤 경매 시스템</h1>
+  <p><strong>입장한 유저:</strong> <span id="username"></span></p>
+  <div class="auction-box">
+    <div><strong>선수:</strong> <span id="player-name">홍길동</span></div>
+    <div><strong>입찰가:</strong> <span id="current-bid">1000</span> G</div>
+    <div class="controls">
+      <input type="number" id="bid-input" placeholder="입찰 금액" />
+      <button onclick="placeBid()">입찰</button>
+    </div>
+    <div><strong>최고 입찰자:</strong> <span id="highest-bidder">없음</span></div>
+  </div>
+  <script>
+    const username = sessionStorage.getItem("nickname");
+    if (!username) {
+      alert("비정상적인 접근입니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("username").innerText = username;
+    }
+  </script>
+</body>
+</html>
