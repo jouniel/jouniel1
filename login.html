@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>자낳대 입장</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    input { margin: 0.5rem 0; padding: 0.5rem; width: 200px; }
+    button { padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h1>자낳대 경매방 입장</h1>
+  <input type="text" id="nickname" placeholder="닉네임 입력" /><br />
+  <input type="password" id="password" placeholder="비밀번호 입력" /><br />
+  <button onclick="enterAuction()">입장</button>
+  <p id="error" style="color:red;"></p>
+
+  <script>
+    function enterAuction() {
+      const nick = document.getElementById("nickname").value;
+      const pw = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (!nick || !pw) {
+        error.textContent = "모든 항목을 입력하세요.";
+        return;
+      }
+
+      if (pw !== "qlalfqjsgh2025!") {
+        error.textContent = "비밀번호가 틀렸습니다.";
+        return;
+      }
+
+      sessionStorage.setItem("nickname", nick);
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
